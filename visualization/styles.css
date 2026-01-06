@@ -1,0 +1,220 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-top {
+    /* flex: 1; Fills remaining space on the left */
+    width: 80vw;
+    height: 50vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px;
+    padding-top: 10vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 5vw;
+}
+
+.container-bot {
+    /* flex: 1; Fills remaining space on the left */
+    width: 80vw;
+    height: 50vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px;
+    padding-top: 10vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 5vw;
+}
+
+.container {
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px;
+    padding-top: 10vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 5vw;
+}
+
+/* For the parameters panel */
+.param-panel 
+{
+    position: fixed; /* Always sticks to the right edge */
+    top: 0;
+    right: 0;
+    height: 100%; /* Full height of the viewport */
+    width: 20%; 
+    background-color: lightgray;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Adds scrolling if content exceeds height */
+}
+
+.left-container {
+    display: flex;
+    flex-direction: column; 
+    width: 80vw;            /* Takes 80% of the width */
+    height: 100vh;          /* Full height */
+}
+
+
+.block-params
+{
+    font-size: 2.5em;
+    font-weight: bolder;
+}
+
+.tree-info
+{
+    font-size: 1.5em;
+    margin-left: 20px;
+}
+
+.block-params input[type="checkbox"]
+{
+    transform: scale(3);
+    transform-origin: center;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+.checkbox-medium
+{
+    transform: scale(2);
+    transform-origin: center;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+
+/*For the data set chosen */
+.param-panel select
+{
+    font-size: 0.6em;
+}
+
+
+.inline-button {
+    font-size: 0.6em;
+}
+
+/* For block of options */
+.subcategories {
+    margin-top: 5px;
+    padding-left: 30px;
+}
+
+.subcategory {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.subsubcategory {
+    font-size: 0.7em;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.slider-label {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.slider-label-small {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1em;
+}
+
+/*Source: https://www.w3schools.com/howto/howto_js_rangeslider.asp */
+.slider {
+    width: 100%;
+    height: 25px;
+    background: #311e1e;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+  
+.slider:hover {
+    opacity: 1;
+}
+  
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #0d7ab5;
+    cursor: pointer;
+}
+  
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #0d7ab5;
+    cursor: pointer;
+}
+
+#use-opacity {
+    width: 20px;
+    height: 20px;
+    transform: scale(1.5);
+}
+
+.input-textbox {
+    transform: scale(1.5);
+    transform-origin: center;
+    margin-left: 40px;
+    vertical-align: middle;
+}
+
+.small-textbox {
+    width: 100px; 
+    padding: 5px; 
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis;
+}
+
+.error-textbox {
+    font-size: 1.5em;
+    color: red;
+    font-weight: bolder;
+}
+
+.button-execute {
+    transform: scale(1.5);
+    transform-origin: center;
+    margin-left: 40px;
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
+.checkbox-param
+{
+    transform: scale(2);
+    transform-origin: center;
+    margin-left: 20px;
+    vertical-align: middle;
+}

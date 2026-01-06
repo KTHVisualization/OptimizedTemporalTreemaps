@@ -1,0 +1,89 @@
+{
+    "transformStr": "translate(295.44265527268317,203.71366640921474) scale(1.501004284356507)",
+    "limitLayer": {
+        "isLimitLayer": false,
+        "minLimitLayer": 1,
+        "maxLimitLayer": null,
+        "orgMaxLayer": 2
+    },
+    "layoutType": "(x,y) and width Optimized",
+    "hideSingularNodes": false,
+    "scale": {
+        "xScale": 1.5,
+        "yScale": 1
+    },
+    "padding": {
+        "yPadding": 0,
+        "layerDiff": 0,
+        "xPadding": 0
+    },
+    "axes": {
+        "isDrawAxes": false,
+        "axesColor": "black",
+        "axesWidth": 3,
+        "axesScale": 0.5,
+        "isShowTime": false,
+        "textSize": 30,
+        "timeFrom": 0,
+        "distanceFromAxes": 75
+    },
+    "birthDeath": {
+        "xRadius": 2,
+        "yRadius": 6
+    },
+    "deltaMain": 0.5,
+    "fudgeX": 0.1,
+    "colorType": "Population",
+    "colorHSL": {
+        "hue": "red",
+        "minSaturation": 99,
+        "maxSaturation": 100,
+        "minLightness": 30,
+        "maxLightness": 90,
+        "hslDecideType": "Depth",
+        "inverseColor": false
+    },
+    "colorCat": {
+        "colorPreset": 15,
+        "chooseType": "Cyclic",
+        "inverseColor": false
+    },
+    "colorD3": {
+        "colorType": "Continuous",
+        "colorFamily": "Diverging",
+        "colorScheme": "BrownGreen",
+        "numColor": 3,
+        "decideType": "Depth",
+        "chooseType": "Cyclic",
+        "inverseColor": false,
+        "increaseContrast": false
+    },
+    "colorPop": {
+        "colorScheme": 2
+    },
+    "opacity": {
+        "use": false,
+        "minOpacity": 90,
+        "maxOpacity": 100
+    },
+    "colorDecideType": 0,
+    "shadowType": "Halo",
+    "dropShadows": {
+        "color": "black",
+        "dx": 0,
+        "dy": 0,
+        "std": 2,
+        "opacity": 1
+    },
+    "halo": {
+        "color": "black",
+        "thickness": 40
+    },
+    "splitstreams": {
+        "isUse": false,
+        "xMargin": 0,
+        "xPadding": 0
+    },
+    "secondImageOffset": 500,
+    "crispEdges": true
+}

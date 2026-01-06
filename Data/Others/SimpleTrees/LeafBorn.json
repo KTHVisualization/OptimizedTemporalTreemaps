@@ -1,0 +1,31 @@
+{
+    "edgesHierarchy": [
+        [0, [1, 2]],
+        [3, [4, 5, 6]],
+        [7, [8, 9]]
+    ],
+    "edgesTime":  [
+        [0, [3]],
+        [1, [4]],
+        [2, [6]],
+        [3, [7]],
+        [6, [8]],
+        [5, [8]],
+        [4, [9]]
+    ],
+    "nodes": [
+        { "name": "root1",  "timeStep": 0,  "areaValues": 10.0 },
+        { "name": "leaf11",  "timeStep": 0,  "areaValues": 7.0 },
+        { "name": "leaf12",  "timeStep": 0,  "areaValues": 2.5 },
+        
+        { "name": "root2",  "timeStep": 1,  "areaValues": 15.0 },
+        { "name": "leaf21",  "timeStep": 1,  "areaValues": 9.0 },
+        { "name": "leaf22",  "timeStep": 1,  "areaValues": 2.5 },
+        { "name": "leaf23",  "timeStep": 1,  "areaValues": 3.0 },
+
+        { "name": "root3",  "timeStep": 2,  "areaValues": 7.0 },
+        { "name": "leaf31",  "timeStep": 2,  "areaValues": 2.5 },
+        { "name": "leaf32",  "timeStep": 2,  "areaValues": 3.0 }
+        
+    ]
+}

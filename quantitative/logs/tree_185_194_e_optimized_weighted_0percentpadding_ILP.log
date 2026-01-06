@@ -1,0 +1,64 @@
+Number of nodes: 112
+Number of hierarchical edges: 101
+Number of temporal edges: 90
+Number of time steps: 11
+Number of levels: 8
+Set parameter TokenServer to value "clustermaster.ac.tuwien.ac.at"
+Set parameter MemLimit to value 8
+Set parameter Threads to value 1
+Set parameter TimeLimit to value 599.995857212
+Gurobi Optimizer version 11.0.2 build v11.0.2rc0 (linux64 - "Ubuntu 18.04.6 LTS")
+
+CPU model: Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 20 physical cores, 20 logical processors, using up to 1 threads
+
+Optimize a model with 737 rows, 245 columns and 1994 nonzeros
+Model fingerprint: 0xc8aa5147
+Variable types: 0 continuous, 245 integer (245 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 11.0000000
+Presolve removed 727 rows and 238 columns
+Presolve time: 0.00s
+Presolved: 10 rows, 7 columns, 30 nonzeros
+Found heuristic solution: objective 0.0000000
+Variable types: 0 continuous, 7 integer (7 binary)
+
+Explored 0 nodes (0 simplex iterations) in 0.00 seconds (0.00 work units)
+Thread count was 1 (of 20 available processors)
+
+Solution count 2: 0 11 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+Time crossing minimization: 9ms
+Number of crossings: 0
+Set parameter TokenServer to value "clustermaster.ac.tuwien.ac.at"
+Set parameter MemLimit to value 8
+Set parameter Threads to value 1
+Gurobi Optimizer version 11.0.2 build v11.0.2rc0 (linux64 - "Ubuntu 18.04.6 LTS")
+
+CPU model: Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 20 physical cores, 20 logical processors, using up to 1 threads
+
+Optimize a model with 337 rows, 202 columns and 854 nonzeros
+Model fingerprint: 0x044c6dcc
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [9e-05, 4e+00]
+  Bounds range     [5e-05, 2e+00]
+  RHS range        [3e-03, 2e+00]
+Presolve removed 28 rows and 14 columns
+Presolve time: 0.00s
+Presolved: 309 rows, 191 columns, 801 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   3.720115e+01   0.000000e+00      0s
+     241    4.8649237e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 241 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  4.864923739e+00
+Time wiggle minimization: 5ms

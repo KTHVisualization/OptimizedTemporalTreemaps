@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+
+<body>
+<script src="data/population_largerthan500_unweighted_0percentpadding.js"></script>
+<script src="data/population_largerthan500_weighted_0percentpadding.js"></script>
+<script src="data/PopulationNoWiggleMin.js"></script>
+<script src="data/PopulationNoOpt.js"></script>
+<script src="data/PopulationUnoptimized.js"></script>
+<script src="data/PopulationWFIGwigglemin.js"></script>
+<script src="data/PopulationWFIGwiggleminWeighted.js"></script>
+<script src="data/PopulationWFIGnowigglemin.js"></script>
+<script src="data/Cartilage_optimized_weighted_ILP.js"></script>
+<script src="data/Cartilage_optimized_unweighted_ILP.js"></script>
+<script src="data/UrinaryTract_optimized_weighted_ILP.js"></script>
+<script src="data/UrinaryTract_optimized_unweighted_ILP.js"></script>
+<script src="data/DigestivePhysiology_optimized_unweighted_ILP.js"></script>
+<script src="data/DigestivePhysiology_optimized_weighted_ILP.js"></script>
+<script src="data/GitInviwoAnimationTo2017Jan15.js"></script>
+<script src="data/GitInviwoAnimationTo2019.js"></script>
+<script src="data/GitGudhi2017_opt.js"></script>
+<script src="data/GitGudhi2017_opt_w.js"></script>
+<script src="data/GitGudhi2017_noOpt.js"></script>
+<script src="data/VF_AccRoot_leavesOnly.js"></script>
+<script src="data/VF_AccRoot_leavesOnly_Weighted.js"></script>
+<script src="data/VF_AccRoot_Wiggle.js"></script>
+<script src="data/VF_Short.js"></script>
+<script src="data/VF_Short_Wiggle.js"></script>
+<script src="data/VF_Short_Weighted.js"></script>
+<script src="data/Synth_NoWiggleMin.js"></script>
+<script src="data/Synth_WiggleMin.js"></script>
+<script src="data/Synth_WiggleMinWeighted.js"></script>
+<script src="data/Synthetic3025.js"></script>
+<script src="data/Synthetic3050.js"></script>
+<script src="data/Synthetic3075.js"></script>
+<script src="data/Synthetic5025.js"></script>
+<script src="data/Synthetic5050.js"></script>
+<script src="data/Synthetic5075.js"></script>
+<script src="data/Synthetic7025.js"></script>
+<script src="data/Synthetic7050.js"></script>
+<script src="data/Synthetic7075.js"></script>
+<script src="data/WiggleIllustration.js"></script>
+<script src="data/TestTree.js"></script>
+
+
+<script src="ext/d3.min.js"></script>
+<script src="ext/bezier.js"></script>
+<script src="ext/d3-color.v1.min.js"></script>
+<script src="ext/d3-interpolate.v1.min.js"></script>
+<script src="ext/d3-scale-chromatic.v1.min.js"></script>
+<script src="lib/colors/colorsHSL.js"></script>
+<script src="lib/colors/colorsCat.js"></script>
+<script src="lib/colors/colorsD3.js"></script>
+<script src="lib/colors/colorPop.js"></script>
+<script src="lib/colors/colorCode.js"></script>
+<script src="lib/datastructures.js"></script>
+<script src="lib/curves.js"></script>
+<script src="lib/temporalTreemapLib.js"></script>
+<script src="lib/utils.js"></script>
+<script src="lib/setup.js"></script>
+
+<div id="container1" class="container"></div>
+<div id="container2" class="container-bot"></div>
+<div id="parameters" class="param-panel">
+    <p class="block-params" >
+        Data set
+        <select id="datasets">
+			<option>population_largerthan500_unweighted_0percentpadding</option>
+			<option>population_largerthan500_weighted_0percentpadding</option>
+            <option>PopulationNoWiggleMin</option>
+			<option>PopulationNoOpt</option>
+            <option>PopulationUnoptimized</option>
+            <option>PopulationWFIGwigglemin</option>
+			<option>PopulationWFIGwiggleminWeighted</option>
+			<option>PopulationWFIGnowigglemin</option>
+			<option>Cartilage_optimized_weighted_ILP</option>
+			<option>Cartilage_optimized_unweighted_ILP</option>
+			<option>UrinaryTract_optimized_weighted_ILP</option>
+			<option>UrinaryTract_optimized_unweighted_ILP</option>
+			<option>DigestivePhysiology_optimized_unweighted_ILP</option>
+			<option>DigestivePhysiology_optimized_weighted_ILP</option>
+			<option>GitInviwoAnimationTo2017Jan15</option>
+			<option>GitInviwoAnimationTo2019</option>
+            <option>GitGudhi2017_opt</option>
+			<option>GitGudhi2017_opt_w</option>
+			<option>GitGudhi2017_noOpt</option>
+			<option>VF_AccRoot_leavesOnly</option>
+			<option>VF_AccRoot_leavesOnly_Weighted</option>
+            <option>VF_AccRoot_Wiggle</option>
+			<option>VF_Short</option>
+			<option>VF_Short_Wiggle</option>
+			<option>VF_Short_Weighted</option>
+			<option>Synth_NoWiggleMin</option>
+			<option>Synth_WiggleMin</option>
+			<option>Synth_WiggleMinWeighted</option>
+			<option>Synthetic3025</option>
+			<option>Synthetic3050</option>
+			<option>Synthetic3075</option>
+			<option>Synthetic5025</option>
+			<option>Synthetic5050</option>
+			<option>Synthetic5075</option>
+			<option>Synthetic7025</option>
+			<option>Synthetic7050</option>
+			<option>Synthetic7075</option>
+            <option>WiggleIllustration</option>
+			<option>TestTree</option>
+</select>
+        <!-- Button to trigger the download-->
+        <button id="save-button" class="inline-button">
+            Download as SVG
+        </button>
+    </p>
+
+    <div style="display: none;" class="block-params">
+        Compare Data set 
+        <select id="datasets-2">
+            <option>None</option>
+        </select>
+        <button id="save-button-cmpr" class="inline-button">
+            Download as SVG
+        </button>
+    </div>
+
+    <div style="display: none;" class="block-params">
+        Second image offset (pixels)
+        <div class="subcategories">
+            <input type="range" class="slider" id="second-image-offset" min="0" max="1000" value="500" step="10" />
+            <div class="slider-label">
+                <span>0</span>
+                <span>1000</span>
+            </div>
+        </div>
+    </div>
+
+    <p class="block-params">
+        Tree's information
+        <div class="tree-info" id="tree-info">
+            Depth starts at 0 (root nodes).
+        </div>
+    </p>
+
+    <div class="block-params">
+        Export Setups
+        <button id="export-setups-button" class="inline-button">
+            Export
+        </button>
+        
+    </div>
+    
+    <div class="block-params">
+        Import Setups
+        <input type="file" id="import-files" class="inline-button" accept=".json">
+        <button id="import-setups-button" class="inline-button">
+            Import Setups
+        </button>
+    </div>
+    
+    <div class="block-params">
+        Crisp Edges
+        <input type="checkbox" id="crisp-edges" unchecked />
+    </div>
+
+    <p class="block-params">
+        Hide layers
+        <input type="text" class="input-textbox" id="hidden-layers" placeholder="Enter layers to hide (starting from 0)" oninput="validateNumbers()">
+        <div id="error-hide-layers" class="error-textbox"></div>
+        <button class="button-execute" id="execute-hide-button">Execute</button>
+    </p>
+
+
+    <p class="block-params">
+        Hide singular nodes
+        <input type="checkbox" id="hide-singular-nodes" unchecked />
+    </p>
+
+    <p class="block-params">
+        Limits layers
+        <input type="checkbox" id="limit-layers" unchecked />
+        <div class="subcategories" id="limit-layer-props">
+            <p class="subcategory">Min layer
+                <input type="text" class="input-textbox" id="min-layer" placeholder="From layer" oninput="validateNumber()">
+            </p>
+            <p class="subcategory">Max layer
+                <input type="text" class="input-textbox" id="max-layer" placeholder="To layer" oninput="validateNumber()">
+            </p>
+            <div id="error-limit-layer" class="error-textbox"></div>
+            <button class="button-execute" id="execute-limit-layer-button">Execute</button>
+        </div>
+    </p>
+
+    <p class="block-params">
+        Color
+        <div class="subcategories">
+            <div class="subcategory">Type
+                <select id="color-types">
+                    <option>HSL</option>
+                    <option>Categorical</option>
+                    <option selected="selected">D3</option>
+                    <option>Population</option>
+                    <option>Code</option>
+                </select>
+            </div>
+
+            <div id="hsl-color-properties-div">
+
+                <div class="subcategory" id="hsl-decide-type-container">Color based on
+                    <select id="hsl-decide-type">
+                        <option>Depth</option>
+                        <option>Scalar Value</option>
+                    </select>
+                </div>
+
+                <div class="subcategory" id="hue-div">Hue
+                    <select id="hue">
+                        <option>red</option>
+                        <option>light-blue</option>
+                        <option>orange</option>
+                        <option>magma</option>
+                        <option>green-yellow</option>
+                        <option>viridis</option>
+                        <option>dark-blue</option>
+                        <option>light-green</option>
+                        <option>yellow</option>
+                        <option>rainbow</option>
+                    </select>
+                </div>
+    
+                <div class="subcategory" id="saturation-div">Saturation
+                    <div class="subsubcategory">Min
+                        <input type="range" class="slider" id="saturation-min" min="0" max="100" value="99" step="1" />
+                        <div class="slider-label">
+                            <span>0</span>
+                            <span>100</span>
+                        </div>
+                    </div>
+                    <div class="subsubcategory">Max
+                        <input type="range" class="slider" id="saturation-max" min="0" max="100" value="100" step="1" />
+                        <div class="slider-label">
+                            <span>0</span>
+                            <span>100</span>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="subcategory" id="lightness-div">Lightness
+                    <div class="subsubcategory">Min
+                        <input type="range" class="slider" id="lightness-min" min="0" max="100" value="30" step="1" />
+                        <div class="slider-label">
+                            <span>0</span>
+                            <span>100</span>
+                        </div>
+                    </div>
+                    <div class="subsubcategory">Max
+                        <input type="range" class="slider" id="lightness-max" min="0" max="100" value="90" step="1" />
+                        <div class="slider-label">
+                            <span>0</span>
+                            <span>100</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="cat-color-properties-div">
+                <div class="subcategory" id="cat-color-preset-container">Presets
+                    <select id="preset-cat">
+                        <option>Preset 1 (single hue, sequential, 3 colors)</option>
+                        <option>Preset 2 (single hue, sequential, 3 colors)</option>
+                        <option>Preset 3 (single hue, sequential, 3 colors)</option>
+                        <option>Preset 4 (multi hue, sequential, 3 colors)</option>
+                        <option>Preset 5 (multi hue, sequential, 3 colors)</option>
+                        <option>Preset 6 (multi hue, sequential, 6 colors)</option>
+                        <option>Preset 7 (multi hue, sequential, 6 colors)</option>
+                        <option>Preset 8 (multi hue, sequential, 6 colors)</option>
+                        <option>Preset 9 (multi hue, sequential, 6 colors)</option>
+                        <option>Preset 10 (multi hue, sequential, 6 colors)</option>
+                        <option>Preset 11 (qualitative, 6 colors)</option>
+                        <option>Preset 12 (qualitative, 6 colors)</option>
+                        <option>Preset 13 (qualitative, 6 colors)</option>
+                        <option>Preset 14 (qualitative, 6 colors)</option>
+                        <option>Preset 15 (diverging, 10 colors)</option>
+                        <option>Preset 16 (NTG-based, 7 colors, white root)</option>
+                        <option>Preset 17 (NTG-based, 6 colors)</option>
+                    </select>
+                </div>
+    
+                <div class="subcategory" id="cat-color-choose-type-container">Choosing type
+                    <select id="cat-color-choose-type">
+                        <option>Cyclic</option>
+                        <option>Grouped</option>
+                        <option>Clamped</option>
+                        <option>Random</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="d3-color-properties-div">
+                <div class="subcategory" id="d3-color-type-container">Color Scale
+                    <select id="d3-color-type">
+                        <option>Continuous</option>
+                        <option>Discrete</option>
+                    </select>
+                </div>
+
+                <div class="subcategory" id="d3-decide-type-container">Color based on
+                    <select id="d3-decide-type">
+                        <option>Depth</option>
+                        <option>Scalar Value</option>
+                    </select>
+                </div>
+
+                <div id="d3-continuous-props">
+
+                    <div class="subcategory" id="increase-contrast-container">Change contrast
+                        <input class="checkbox-param" type="checkbox" id="increase-contrast" unchecked />
+                    </div>
+
+                    <div class="subcategory" id="d3-continuous-family-container">Family
+                        <select id="d3-continuous-family">
+                            <option>Diverging</option>
+                            <option>Cyclical</option>
+                            <option>Sequential</option>
+                        </select>
+                    </div>
+    
+                    <div class="subcategory" id="d3-continuous-cyclical-container">Scheme
+                        <select id="d3-continuous-cyclical">
+                            <option>Rainbow</option>
+                            <option>Sinebow</option>
+                        </select>
+                    </div>
+    
+                    <div class="subcategory" id="d3-continuous-diverging-container">Scheme
+                        <select id="d3-continuous-diverging">
+                            <option>BrownGreen</option>
+                            <option>PurpleGreen</option>
+                            <option>PinkGreen</option>
+                            <option>PurpleGold</option>
+                            <option>RedBlue</option>
+                            <option>RedGrey</option>
+                            <option>RedYellowBlue</option>
+                            <option>RedYellowGreen</option>
+                            <option>Spectral</option>
+                        </select>
+                    </div>
+    
+                    <div class="subcategory" id="d3-continuous-sequential-container">Scheme
+                        <select id="d3-continuous-sequential">
+                            <option>Blues</option>
+                            <option>Greens</option>
+                            <option>Greys</option>
+                            <option>Oranges</option>
+                            <option>Purples</option>
+                            <option>Reds</option>
+                            <option>Turbo</option>
+                            <option>Viridis</option>
+                            <option>Inferno</option>
+                            <option>Magma</option>
+                            <option>Plasma</option>
+                            <option>Cividis</option>
+                            <option>Warm</option>
+                            <option>Cool</option>
+                            <option>CubehelixDefault</option>
+                            <option>WhiteGreen</option>
+                            <option>WhitePurple</option>
+                            <option>WhiteGreenBlue</option>
+                            <option>GoldRed</option>
+                            <option>PurpleBlueGreen</option>
+                            <option>PurpleBlue</option>
+                            <option>PurpleRed</option>
+                            <option>RedPurple</option>
+                            <option>YellowGreenBlue</option>
+                            <option>YellowGreen</option>
+                            <option>YellowGoldBrown</option>
+                            <option>YellowGoldRed</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div id="d3-discrete-props">
+                    
+                    <div class="subcategory" id="d3-discrete-choose-type-container">Choosing type
+                        <select id="d3-discrete-color-choose-type">
+                            <option>Cyclic</option>
+                            <option>Grouped</option>
+                            <option>Clamped</option>
+                        </select>
+                    </div>
+
+                    <div class="subcategory" id="d3-discrete-family-container">Family
+                        <select id="d3-discrete-family">
+                            <option>Sequential</option>
+                            <option>Categorical</option>
+                            <option>Diverging</option>
+                        </select>
+                    </div>
+
+                    <div class="subcategory" id="d3-discrete-num-colors-container">Number of colors
+                        <select id="d3-discrete-num-colors">
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                        </select>
+                    </div>
+    
+                    
+                    <div class="subcategory" id="d3-discrete-categorical-container">Schema
+                        <select id="d3-discrete-categorical">
+                            <option>Cat10</option>
+                            <option>Accent</option>
+                            <option>Dark2</option>
+                            <option>Paired</option>
+                            <option>Pastel1</option>
+                            <option>Pastel2</option>
+                            <option>Set1</option>
+                            <option>Set2</option>
+                            <option>Set3</option>
+                        </select>
+                    </div>
+    
+                    <div class="subcategory" id="d3-discrete-diverging-container">Schema
+                        <select id="d3-discrete-diverging">
+                            <option>BrownGreen</option>
+                            <option>PurpleGreen</option>
+                            <option>PinkGreen</option>
+                            <option>PurpleGold</option>
+                            <option>RedBlue</option>
+                            <option>RedGrey</option>
+                            <option>RedYellowBlue</option>
+                            <option>RedYellowGreen</option>
+                            <option>Spectral</option>
+                        </select>
+                    </div> 
+                    
+                    <div class="subcategory" id="d3-discrete-sequential-container">Schema
+                        <select id="d3-discrete-sequential">
+                            <option>Blues</option>
+                            <option>Greens</option>
+                            <option>Greys</option>
+                            <option>Oranges</option>
+                            <option>Purples</option>
+                            <option>Reds</option>
+                            <option>WhiteBlueGreen</option>
+                            <option>WhiteBluePurple</option>
+                            <option>WhiteGreenBlue</option>
+                            <option>GoldRed</option>
+                            <option>PurpleBlueGreen</option>
+                            <option>PurpleBlue</option>
+                            <option>PurpleRed</option>
+                            <option>RedPurple</option>
+                            <option>YellowGreenBlue</option>
+                            <option>YellowGreen</option>
+                            <option>YellowGoldBrown</option>
+                            <option>YellowGoldRed</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div id="population-color-properties-div">
+                <div class="subcategory" id="population-color-properties-container">Schema
+                    <select id="population-color-schema">
+                        <option>Set 1</option>
+                        <option>Set 2</option>
+                        <option selected="selected">Set 3 (use this)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="subcategory" id="opacity-container">Opacity
+                <input type="checkbox" id="use-opacity" unchecked />
+                <div id="opacity-range">
+                    <div class="subsubcategory">Min
+                        <input type="range" class="slider" id="opacity-min" min="0" max="100" value="90" step="1" />
+                        <div class="slider-label">
+                            <span>0</span>
+                            <span>100</span>
+                        </div>
+                    </div>
+                    <div class="subsubcategory">Max
+                        <input type="range" class="slider" id="opacity-max" min="0" max="100" value="100" step="1" />
+                        <div class="slider-label">
+                            <span>0</span>
+                            <span>100</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subcategory" id="color-decide-type-container">Decide type
+                <select id="color-decide-type">
+                    <option>Recomputed</option>
+                    <option>Inhereted</option>
+                </select>
+            </div>
+
+            <div class="subcategory" id="inverse-container">Inverse
+                <input class="checkbox-param" type="checkbox" id="inverse-color" unchecked />
+            </div>
+        </div>
+    </p>
+
+    <p class="block-params">
+        Layout
+        <select id="layout-type">
+			<option>y and width Optimized</option>
+			<option selected="selected">(x,y) and width Optimized</option>
+        	<option>Non-Optimized</option>
+        </select>
+    </p>
+
+    <p class="block-params" id="block-scales">
+        Scales
+        <div class="subcategories">
+            <div id="x-scale-div">
+                <p class="subcategory">X Scale
+                    <input type="text" class="input-textbox small-textbox" id="x-scale" placeholder="2" value="2">
+                    <div>Press Enter to Apply</div>
+                </p>
+            </div>
+            <div id="y-scale-div">
+                <p class="subcategory">Y Scale
+                    <!-- <input type="range" class="slider" id="y-scale" min="0.01" max="1" value="1" step="0.01" />
+                    <div class="slider-label">
+                        <span>0.01</span>
+                        <span>1</span>
+                    </div> -->
+                    <input type="text" class="input-textbox small-textbox" id="y-scale" placeholder="1" value="1">
+                    <div>Press Enter to Apply</div>
+                </p>
+            </div>
+        </div>
+    </p>
+
+    <p class="block-params">
+        Padding
+        <div class="subcategories">
+            <div id="y-padding-div">
+                <p class="subcategory">Y Padding
+                    <input type="range" class="slider" id="y-padding" min="0" max="2" value="0" step="0.001" />
+                    <div class="slider-label">
+                        <span>0</span>
+                        <span>2</span>
+                    </div>
+                </p>
+            </div>
+
+            <div id="layer-diff-div">
+                <p class="subcategory">Layer Difference
+                    <input type="range" class="slider" id="layer-diff" min="0" max="0.5" value="0" step="0.001" />
+                    <div class="slider-label">
+                        <span>0</span>
+                        <span>0.5</span>
+                    </div>
+                </p>
+            </div>
+        
+            <p class="subcategory">X Padding
+                <input type="range" class="slider" id="x-padding" min="0" max="0.499" value="0" step="0.01" />
+                <div class="slider-label">
+                    <span>0</span>
+                    <span>0.5</span>
+                </div>
+            </p>
+        </div>
+    </p>
+
+    <p class="block-params">
+        Axes (for timestep)
+        <input type="checkbox" id="draw-axes" unchecked />
+        <div class="subcategories" id="axes-props">
+            <div class="subcategory">Color
+                <select id="axes-color">
+                    <option>black</option>
+                    <option>blue</option>
+                    <option>yellow</option>
+                    <option>green</option>
+                    <option>grey</option>
+                </select>
+            </div>
+            <p class="subcategory">Width
+                <input type="range" class="slider" id="axes-width" min="0.01" max="10" value="3" step="0.01" />
+                <div class="slider-label">
+                    <span>0.01</span>
+                    <span>10</span>
+                </div>
+            </p>
+            <p class="subcategory">Scale
+                <input type="range" class="slider" id="axes-scale" min="0.01" max="1" value="0.5" step="0.01"/>
+                <div class="slider-label">
+                    <span>0.01</span>
+                    <span>10</span>
+                </div>
+            </p>
+            <div class="subcategory">Show Timestamp
+                <input type="checkbox" class="checkbox-medium" id="axes-show-time" unchecked />
+            </div>
+            <p class="subcategory">Text Size
+                <input type="range" class="slider" id="axes-text-size" min="5" max="50" value="30" step="0.1"/>
+                <div class="slider-label">
+                    <span>5</span>
+                    <span>50</span>
+                </div>
+            </p>
+
+            <p class="subcategory">Distance from axes
+                <input type="range" class="slider" id="axes-distance" min="10" max="100" value="75" step="1"/>
+                <div class="slider-label">
+                    <span>10</span>
+                    <span>100</span>
+                </div>
+            </p>
+            
+            <div class="subcategory">Time Start from
+                <input type="text" class="input-textbox small-textbox" id="axes-time-start" placeholder="0" value="0">
+            </div>
+        </div>
+    </p>
+
+    <p class="block-params">
+        Radii (for birth-death events)
+        <div class="subcategories">
+            <p class="subcategory">X Radius
+                <input type="range" class="slider" id="x-radius" min="0" max="10" value="2" step="0.001" />
+                <div class="slider-label">
+                    <span>0</span>
+                    <span>100</span>
+                </div>
+            </p>
+            <p class="subcategory">Y Radius
+                <input type="range" class="slider" id="y-radius" min="0" max="10" value="6" step="0.001" />
+                <div class="slider-label">
+                    <span>0</span>
+                    <span>100</span>
+                </div>
+            </p>
+        </div>
+    </p>
+
+    <p class="block-params">
+        Delta (for edges)
+        <div class="subcategories">
+            <input type="range" class="slider" id="delta-main" min="0.01" max="1" value="0.5" step="0.01" />
+            <div class="slider-label">
+                <span>0.01</span>
+                <span>1</span>
+            </div>
+        </div>
+    </p>
+
+    <p class="block-params">
+        FudgeX
+        <div class="subcategories">
+            <input type="text" class="input-textbox small-textbox" id="fudge-x" placeholder="0.1" value="0.1" oninput="validateFudge()">
+            <button class="button-execute" id="execute-fudge">Go</button>
+            <div id="error-fudge" class="error-textbox"></div>
+        </div>
+    </p>
+
+
+    <p class="block-params">
+        Shadow
+        <div class="subcategories">
+            <div class="subcategory" id="shadow-type-container">Type
+                <select id="shadow-type">
+                    <option>None</option>
+                    <option>Drop Shadow</option>
+                    <option>Drop Shadow with Fudge</option>
+                    <option>Halo</option>
+                </select>
+            </div>
+
+            <div id="color-shadow-container">
+                <div class="subcategory">Color
+                    <select id="color-shadow">
+                        <option>black</option>
+                        <option>white</option>
+                        <option>red</option>
+                        <option>blue</option>
+                        <option>green</option>
+                        <option>yellow</option>
+                        <option>magenta</option>
+                        <option>cyan</option>
+                        <option>grey</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="halo-thickness-container">
+                <p class="subcategory">Thickness Percentage
+                    <input type="text" class="input-textbox" id="halo-thickness" placeholder="Percentage" oninput="validateFloat()">
+                    <div id="error-thickness" class="error-textbox"></div>
+                </p>
+            </div>
+
+            <div id="shadow-properties-container">
+                <button class="button-execute" id="execute-shadow">Apply Shadow</button>
+                <p class="subcategory">dx
+                    <input type="text" class="input-textbox small-textbox" id="dx-shadow" placeholder="0" value="0">
+                    <div>From -20 to 20</div>
+                </p>
+                <p class="subcategory">dy
+                    <input type="text" class="input-textbox small-textbox" id="dy-shadow" placeholder="0" value="0">
+                    <div>From -20 to 20</div>
+                </p>
+                <p class="subcategory">Standard Deviation
+                    <input type="range" class="slider" id="std-shadow" min="0" max="20" value="2" step="0.01" />
+                    <div class="slider-label">
+                        <span>0</span>
+                        <span>20</span>
+                    </div>
+                </p>
+                <p class="subcategory">Opacity
+                    <input type="range" class="slider" id="opaque-shadow" min="0" max="1" value="1" step="0.01" />
+                    <div class="slider-label">
+                        <span>0</span>
+                        <span>1</span>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </p>
+
+    <p class="block-params">
+        SplitStreams
+        <input type="checkbox" id="active-splitstreams" unchecked />
+        <div class="subcategories">
+            <div class="subcategory">X Margin
+                <input type="range" class="slider" id="splitstreams-x-length" min="0" max="50" value="0" step="0.001" />
+                <div class="slider-label-small">
+                    <span>0</span>
+                    <span>50</span>
+                </div>
+            </div>
+            <div class="subcategory">X Padding
+                <input type="range" class="slider" id="splitstreams-x-padding" min="0" max="20" value="0" step="0.001" />
+                <div class="slider-label-small">
+                    <span>0</span>
+                    <span>20</span>
+                </div>
+            </div>
+        </div>
+    </p>
+
+</div>
+
+<script>
+    function validateNumbers() 
+    {
+        let inputField = document.getElementById("hidden-layers");
+        let errorMessage = document.getElementById("error-hide-layers");
+
+        // Numbers separated by commas or spaces
+        let validPattern = /^(\d+\s*[, ]\s*)*\d*$/;
+
+        if (!validPattern.test(inputField.value)) {
+            errorMessage.innerText = "Invalid format! Use numbers separated by commas or spaces, only accept non-zero values";
+        } else {
+            errorMessage.innerText = "";
+        }
+    }
+
+    // Validate the number
+    function validateNumber()
+    {
+        let minLayer = document.getElementById("min-layer");
+        let maxLayer = document.getElementById("max-layer");
+
+        let errorMessage = document.getElementById("error-limit-layer");
+
+        // Number pattern
+        let validPattern = /^\s*\d+\s*$/;
+        if (!validPattern.test(minLayer.value) && parseInt(minLayer.value) > 0
+            && validPattern.test(maxLayer.value) && parseInt(maxLayer.value))
+        {
+            errorMessage.innerText = "Invalid format! Use numbers , only accept non-zero values";
+        } else 
+        {
+            errorMessage.innerText = "";
+        }
+    }
+
+    function validateFloat()
+    {
+        let haloThickness = document.getElementById("halo-thickness");
+
+        let errorMessage = document.getElementById("error-thickness");
+
+        // Number pattern
+        let validPattern = /^\s*\d+(\.\d+)?\s*$/;
+        if (!validPattern.test(haloThickness.value) && parseFloat(haloThickness.value) > 0)
+        {
+            errorMessage.innerText = "Invalid format! Use float (e.g 1.2), only accept non-zero values";
+        } else 
+        {
+            errorMessage.innerText = "";
+        }
+    }
+
+    function validateFudge()
+    {
+        let haloThickness = document.getElementById("fudge-x");
+
+        let errorMessage = document.getElementById("error-fudge");
+
+        // Number pattern
+        let validPattern = /^\s*\d+(\.\d+)?\s*$/;
+        if (!validPattern.test(haloThickness.value) && parseFloat(haloThickness.value) > 0)
+        {
+            errorMessage.innerText = "Invalid format! Use float (e.g 1.2), only accept non-zero values";
+        } else 
+        {
+            errorMessage.innerText = "";
+        }
+    }
+</script>

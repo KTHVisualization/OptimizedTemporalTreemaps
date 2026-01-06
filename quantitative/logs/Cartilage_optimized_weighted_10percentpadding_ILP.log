@@ -1,0 +1,71 @@
+Number of nodes: 172
+Number of hierarchical edges: 163
+Number of temporal edges: 145
+Number of time steps: 9
+Number of levels: 4
+Set parameter TokenServer to value "clustermaster.ac.tuwien.ac.at"
+Set parameter MemLimit to value 8
+Set parameter Threads to value 1
+Set parameter TimeLimit to value 599.977258291
+Gurobi Optimizer version 11.0.2 build v11.0.2rc0 (linux64 - "Ubuntu 18.04.6 LTS")
+
+CPU model: Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 20 physical cores, 20 logical processors, using up to 1 threads
+
+Optimize a model with 12473 rows, 1852 columns and 34140 nonzeros
+Model fingerprint: 0x6b7a1145
+Variable types: 0 continuous, 1852 integer (1852 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 13.0000000
+Presolve removed 12337 rows and 1792 columns
+Presolve time: 0.04s
+Presolved: 136 rows, 60 columns, 408 nonzeros
+Extracted 82 lazy constraints
+Variable types: 0 continuous, 60 integer (60 binary)
+
+Root relaxation: objective 0.000000e+00, 10 iterations, 0.00 seconds (0.00 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+*    0     0               0       0.0000000    0.00000  0.00%     -    0s
+
+Explored 1 nodes (10 simplex iterations) in 0.04 seconds (0.03 work units)
+Thread count was 1 (of 20 available processors)
+
+Solution count 2: 0 13 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+Time crossing minimization: 65ms
+Number of crossings: 0
+Set parameter TokenServer to value "clustermaster.ac.tuwien.ac.at"
+Set parameter MemLimit to value 8
+Set parameter Threads to value 1
+Gurobi Optimizer version 11.0.2 build v11.0.2rc0 (linux64 - "Ubuntu 18.04.6 LTS")
+
+CPU model: Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 20 physical cores, 20 logical processors, using up to 1 threads
+
+Optimize a model with 501 rows, 317 columns and 1292 nonzeros
+Model fingerprint: 0xe11210bc
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e-01, 4e+00]
+  Bounds range     [6e-02, 2e+00]
+  RHS range        [7e-03, 1e+00]
+Presolve removed 4 rows and 2 columns
+Presolve time: 0.00s
+Presolved: 497 rows, 316 columns, 1285 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   5.362622e+01   0.000000e+00      0s
+     366    3.6272888e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 366 iterations and 0.00 seconds (0.00 work units)
+Optimal objective  3.627288752e+00
+Time wiggle minimization: 7ms

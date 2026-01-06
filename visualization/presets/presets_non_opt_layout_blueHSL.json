@@ -1,0 +1,88 @@
+{
+    "transformStr": "translate(508.986204240455,981.6820254527909) scale(2.1584564730088527)",
+    "limitLayer": {
+        "isLimitLayer": false,
+        "minLimitLayer": null,
+        "maxLimitLayer": null,
+        "orgMaxLayer": 1
+    },
+    "layoutType": "Non-Optimized",
+    "hideSingularNodes": false,
+    "scale": {
+        "xScale": 3,
+        "yScale": 0.01
+    },
+    "padding": {
+        "yPadding": 0,
+        "layerDiff": 0,
+        "xPadding": 0
+    },
+    "axes": {
+        "isDrawAxes": false,
+        "axesColor": "black",
+        "axesWidth": 3,
+        "axesScale": 0.5,
+        "isShowTime": false,
+        "textSize": 30,
+        "timeFrom": 0,
+        "distanceFromAxes": 75
+    },
+    "birthDeath": {
+        "xRadius": 2,
+        "yRadius": 6
+    },
+    "deltaMain": 0.5,
+    "fudgeX": 0.1,
+    "colorType": "HSL",
+    "colorHSL": {
+        "hue": "light-blue",
+        "minSaturation": 99,
+        "maxSaturation": 100,
+        "minLightness": 30,
+        "maxLightness": 90,
+        "hslDecideType": "Depth",
+        "inverseColor": false
+    },
+    "colorCat": {
+        "colorPreset": 0,
+        "chooseType": "Cyclic",
+        "inverseColor": false
+    },
+    "colorD3": {
+        "colorType": "Continuous",
+        "colorFamily": "Diverging",
+        "colorScheme": "BrownGreen",
+        "numColor": 3,
+        "decideType": "Depth",
+        "chooseType": "Cyclic",
+        "inverseColor": false,
+        "increaseContrast": false
+    },
+    "colorPop": {
+        "colorScheme": 0
+    },
+    "opacity": {
+        "use": false,
+        "minOpacity": 90,
+        "maxOpacity": 100
+    },
+    "colorDecideType": 0,
+    "shadowType": "Drop Shadow with Fudge",
+    "dropShadows": {
+        "color": "black",
+        "dx": 0,
+        "dy": 0,
+        "std": 1.63,
+        "opacity": 1
+    },
+    "halo": {
+        "color": "black",
+        "thickness": null
+    },
+    "splitstreams": {
+        "isUse": false,
+        "xMargin": 0,
+        "xPadding": 0
+    },
+    "secondImageOffset": 500
+}

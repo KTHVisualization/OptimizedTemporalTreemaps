@@ -1,0 +1,46 @@
+Number of nodes: 75662
+Number of hierarchical edges: 75540
+Number of temporal edges: 71965
+Number of time steps: 122
+Number of levels: 9
+Time crossing minimization: 1238ms
+Number of crossings: 10214
+Set parameter TokenServer to value "clustermaster.ac.tuwien.ac.at"
+Set parameter MemLimit to value 8
+Set parameter Threads to value 1
+Gurobi Optimizer version 11.0.2 build v11.0.2rc0 (linux64 - "Ubuntu 18.04.6 LTS")
+
+CPU model: Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 20 physical cores, 20 logical processors, using up to 1 threads
+
+Optimize a model with 229866 rows, 147627 columns and 603662 nonzeros
+Model fingerprint: 0x6cdaa86c
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [3e-12, 2e+00]
+  RHS range        [1e-05, 2e+00]
+Presolve removed 3448 rows and 990 columns
+Presolve time: 0.40s
+Presolved: 226418 rows, 148945 columns, 599072 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   1.832301e+03   0.000000e+00      1s
+   56127    3.5662067e+01   4.124791e+03   0.000000e+00      5s
+   85891    1.7423570e+02   1.011743e+03   0.000000e+00     10s
+   93969    2.7278075e+02   9.986117e+02   0.000000e+00     15s
+  100909    3.5742200e+02   9.354466e+02   0.000000e+00     20s
+  106940    4.0762376e+02   5.383211e+02   0.000000e+00     25s
+  113966    4.4009787e+02   6.855478e+02   0.000000e+00     30s
+  120611    4.5542979e+02   3.425302e+02   0.000000e+00     35s
+  129192    4.7034744e+02   5.585797e+02   0.000000e+00     40s
+  136472    4.8113759e+02   2.047261e+02   0.000000e+00     45s
+  149417    4.9009563e+02   4.017334e+01   0.000000e+00     50s
+  165425    4.9413097e+02   2.024310e+01   0.000000e+00     55s
+  185496    4.9629312e+02   6.217817e+00   0.000000e+00     60s
+  211735    4.9677261e+02   1.907798e-01   0.000000e+00     65s
+  215677    4.9661537e+02   0.000000e+00   0.000000e+00     67s
+
+Solved in 215677 iterations and 67.04 seconds (45.82 work units)
+Optimal objective  4.966153669e+02
+Time wiggle minimization: 67551ms

@@ -1,0 +1,25 @@
+Name,           TreeTypes,  StartTimestep,  EndTimestep,    PersistenceThreshold
+Cylinder2D,     Join Tree,  500,            1400,           0.2,                 
+Storm     ,     Join Tree,  0,              742,            0.05
+Cylinder3D,     Split/Join Tree,  50,       150,            0.2
+ViscousFingers, Split Tree, 20,             98,             0.05
+Tangaroa,       Join Tree,  50              173             0.2
+Tangaroa        Split Tree, 50              199             0.2
+
+
+Compare datasets:
+Cylinder2D: Clipped for y < 300, timestep: 610-649
+Storm: 27/12/1999, FullDay (0-23) and HalfDay (11-23), timestep: 624-647, Storm Lothar: weak, Martin: Strong.
+ViscousFingers: Split Tree, timestep: 94-98, simplify: 0.05 and 0.1
+Cylinder3D: Split Tree, timestep: 90-99 (100 if count the last one), simplify 0.2
+Tangaroa: Split Tree, timestep: 185-194 (185 if count the last one), simplify 0.2
+
+
+New Setups PacificVis
+Name,           TreeTypes,  StartTimestep,  EndTimestep,    PersistenceThreshold
+Cylinder2D,     Join Tree,  500,            1400,           0.05,                 
+Storm     ,     Join Tree,  0,              742,            0.01
+Cylinder3D,     Split/Join Tree,  50,       150,            0.08
+ViscousFingers, Split Tree, 20,             98,             0.05
+Tangaroa,       Join Tree,  50              173             0.2
+Tangaroa        Split Tree, 50              199             0.2

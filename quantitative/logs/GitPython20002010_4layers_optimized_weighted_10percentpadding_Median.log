@@ -1,0 +1,63 @@
+Number of nodes: 140373
+Number of hierarchical edges: 140330
+Number of temporal edges: 132028
+Number of time steps: 43
+Number of levels: 5
+Time crossing minimization: 2592ms
+Number of crossings: 365222
+Set parameter TokenServer to value "clustermaster.ac.tuwien.ac.at"
+Set parameter MemLimit to value 8
+Set parameter Threads to value 1
+Gurobi Optimizer version 11.0.2 build v11.0.2rc0 (linux64 - "Ubuntu 18.04.6 LTS")
+
+CPU model: Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 20 physical cores, 20 logical processors, using up to 1 threads
+
+Optimize a model with 413512 rows, 272401 columns and 1091080 nonzeros
+Model fingerprint: 0x2ece047a
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [3e-11, 4e+00]
+  Bounds range     [1e-11, 2e+00]
+  RHS range        [4e-05, 2e+00]
+Presolve removed 1902 rows and 1194 columns
+Presolve time: 2.17s
+Presolved: 411610 rows, 271838 columns, 1087869 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   4.350251e+03   0.000000e+00      2s
+   56425    7.9027943e-01   2.390428e+04   0.000000e+00      6s
+   84075    1.3002524e+00   2.182880e+04   0.000000e+00     10s
+   97925    1.6248927e+00   2.163838e+04   0.000000e+00     15s
+  131448    9.2411479e+00   3.043934e+04   0.000000e+00     20s
+  167411    2.9585638e+01   2.059085e+04   0.000000e+00     25s
+  190999    3.8401653e+01   2.781203e+04   0.000000e+00     30s
+  208633    4.0131661e+01   9.236744e+03   0.000000e+00     35s
+  220056    4.2649642e+01   2.639412e+04   0.000000e+00     40s
+  231040    4.3921642e+01   3.293091e+04   0.000000e+00     45s
+  238555    4.4879299e+01   5.872502e+03   0.000000e+00     50s
+  246810    4.5246927e+01   9.005470e+03   0.000000e+00     55s
+  258040    4.6108424e+01   5.567315e+03   0.000000e+00     60s
+  265245    4.7011846e+01   8.623914e+03   0.000000e+00     65s
+  275404    4.7503669e+01   5.029428e+03   0.000000e+00     70s
+  282951    4.7735400e+01   4.413731e+03   0.000000e+00     75s
+  292970    4.8084923e+01   9.663009e+03   0.000000e+00     80s
+  303918    4.8542544e+01   3.023925e+03   0.000000e+00     85s
+  313786    4.8779869e+01   4.561856e+03   0.000000e+00     90s
+  325687    4.8940802e+01   8.366833e+03   0.000000e+00     95s
+  334534    4.9110184e+01   2.377871e+03   0.000000e+00    100s
+  343774    4.9333345e+01   2.531042e+03   0.000000e+00    105s
+  353520    4.9481616e+01   2.695885e+03   0.000000e+00    110s
+  362424    4.9591495e+01   2.538540e+03   0.000000e+00    115s
+  371730    4.9659798e+01   1.649034e+03   0.000000e+00    120s
+  379340    4.9722507e+01   1.758874e+03   0.000000e+00    125s
+  386372    4.9779983e+01   1.061523e+03   0.000000e+00    130s
+  397987    4.9855646e+01   4.982637e+02   0.000000e+00    135s
+  426113    5.0080933e+01   3.843298e+02   0.000000e+00    140s
+  453653    5.0168960e+01   3.029503e+01   0.000000e+00    145s
+  484365    4.8083340e+01   0.000000e+00   3.639405e+00    150s
+  494398    4.8083314e+01   0.000000e+00   0.000000e+00    152s
+
+Solved in 494398 iterations and 151.96 seconds (110.35 work units)
+Optimal objective  4.808331393e+01
+Time wiggle minimization: 152818ms

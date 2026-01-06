@@ -1,0 +1,121 @@
+Number of nodes: 978
+Number of hierarchical edges: 918
+Number of temporal edges: 943
+Number of time steps: 60
+Number of levels: 4
+Set parameter TokenServer to value "clustermaster.ac.tuwien.ac.at"
+Set parameter MemLimit to value 8
+Set parameter Threads to value 1
+Set parameter TimeLimit to value 599.928254891
+Gurobi Optimizer version 11.0.2 build v11.0.2rc0 (linux64 - "Ubuntu 18.04.6 LTS")
+
+CPU model: Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 20 physical cores, 20 logical processors, using up to 1 threads
+
+Optimize a model with 40742 rows, 8034 columns and 114940 nonzeros
+Model fingerprint: 0xdcc8bd34
+Variable types: 0 continuous, 8034 integer (8034 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 865.0000000
+Presolve removed 33490 rows and 5214 columns
+Presolve time: 0.12s
+Presolved: 7252 rows, 2820 columns, 21756 nonzeros
+Extracted 4560 lazy constraints
+Found heuristic solution: objective 821.0000000
+Variable types: 0 continuous, 2820 integer (2820 binary)
+
+Root relaxation: objective 0.000000e+00, 1148 iterations, 0.01 seconds (0.01 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0  919  821.00000    0.00000   100%     -    0s
+H    0     0                     818.0000000    0.00000   100%     -    0s
+     0     0    7.50000    0  924  818.00000    7.50000  99.1%     -    0s
+     0     0    9.00000    0  919  818.00000    9.00000  98.9%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+     0     0   10.00000    0    -  818.00000   10.00000  98.8%     -    0s
+*    0     0               0      10.0000000   10.00000  0.00%     -    0s
+
+Cutting planes:
+  Zero half: 1
+  Lazy constraints: 70
+
+Explored 1 nodes (2537 simplex iterations) in 0.34 seconds (0.29 work units)
+Thread count was 1 (of 20 available processors)
+
+Solution count 4: 10 818 821 865 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 1.000000000000e+01, best bound 1.000000000000e+01, gap 0.0000%
+Time crossing minimization: 426ms
+Number of crossings: 10
+Set parameter TokenServer to value "clustermaster.ac.tuwien.ac.at"
+Set parameter MemLimit to value 8
+Set parameter Threads to value 1
+Gurobi Optimizer version 11.0.2 build v11.0.2rc0 (linux64 - "Ubuntu 18.04.6 LTS")
+
+CPU model: Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 20 physical cores, 20 logical processors, using up to 1 threads
+
+Optimize a model with 3184 rows, 1921 columns and 8254 nonzeros
+Model fingerprint: 0x55c1af27
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e-04, 4e+00]
+  Bounds range     [4e-05, 2e+00]
+  RHS range        [7e-05, 2e+00]
+Presolve removed 344 rows and 157 columns
+Presolve time: 0.01s
+Presolved: 2840 rows, 1883 columns, 7567 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   3.556477e+02   0.000000e+00      0s
+    2441    5.7737250e+01   0.000000e+00   0.000000e+00      0s
+
+Solved in 2441 iterations and 0.06 seconds (0.06 work units)
+Optimal objective  5.773724986e+01
+Time wiggle minimization: 69ms

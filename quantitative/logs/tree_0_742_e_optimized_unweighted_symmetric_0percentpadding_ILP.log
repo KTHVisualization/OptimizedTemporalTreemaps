@@ -1,0 +1,66 @@
+Number of nodes: 8446
+Number of hierarchical edges: 7702
+Number of temporal edges: 7829
+Number of time steps: 744
+Number of levels: 10
+Set parameter TokenServer to value "clustermaster.ac.tuwien.ac.at"
+Set parameter MemLimit to value 8
+Set parameter Threads to value 1
+Set parameter TimeLimit to value 599.639645836
+Gurobi Optimizer version 11.0.2 build v11.0.2rc0 (linux64 - "Ubuntu 18.04.6 LTS")
+
+CPU model: Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 20 physical cores, 20 logical processors, using up to 1 threads
+
+Optimize a model with 98664 rows, 28153 columns and 266240 nonzeros
+Model fingerprint: 0x0e1b51ab
+Variable types: 0 continuous, 28153 integer (28153 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e+00, 1e+00]
+Found heuristic solution: objective 1050.0000000
+Presolve removed 91332 rows and 21256 columns
+Presolve time: 0.17s
+Presolved: 7332 rows, 6897 columns, 21996 nonzeros
+Extracted 4 lazy constraints
+Found heuristic solution: objective 1046.0000000
+Variable types: 0 continuous, 6897 integer (6897 binary)
+Found heuristic solution: objective 0.0000000
+
+Explored 1 nodes (0 simplex iterations) in 0.27 seconds (0.26 work units)
+Thread count was 1 (of 20 available processors)
+
+Solution count 4: 0 0 1046 1050 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+Time crossing minimization: 710ms
+Number of crossings: 0
+Set parameter TokenServer to value "clustermaster.ac.tuwien.ac.at"
+Set parameter MemLimit to value 8
+Set parameter Threads to value 1
+Gurobi Optimizer version 11.0.2 build v11.0.2rc0 (linux64 - "Ubuntu 18.04.6 LTS")
+
+CPU model: Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 20 physical cores, 20 logical processors, using up to 1 threads
+
+Optimize a model with 28325 rows, 16275 columns and 72308 nonzeros
+Model fingerprint: 0x678f3170
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [2e-03, 2e+00]
+  RHS range        [7e-03, 2e+00]
+Presolve removed 5242 rows and 2993 columns
+Presolve time: 0.04s
+Presolved: 23083 rows, 13362 columns, 59056 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.527589e+03   0.000000e+00      0s
+   21457    1.9861758e+02   0.000000e+00   0.000000e+00      0s
+
+Solved in 21457 iterations and 0.46 seconds (0.40 work units)
+Optimal objective  1.986175763e+02
+Time wiggle minimization: 519ms

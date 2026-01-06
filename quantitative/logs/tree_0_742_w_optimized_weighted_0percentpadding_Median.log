@@ -1,0 +1,33 @@
+Number of nodes: 8446
+Number of hierarchical edges: 7702
+Number of temporal edges: 7901
+Number of time steps: 744
+Number of levels: 10
+Time crossing minimization: 93ms
+Number of crossings: 49
+Set parameter TokenServer to value "clustermaster.ac.tuwien.ac.at"
+Set parameter MemLimit to value 8
+Set parameter Threads to value 1
+Gurobi Optimizer version 11.0.2 build v11.0.2rc0 (linux64 - "Ubuntu 18.04.6 LTS")
+
+CPU model: Intel(R) Xeon(R) CPU E5-2640 v4 @ 2.40GHz, instruction set [SSE2|AVX|AVX2]
+Thread count: 20 physical cores, 20 logical processors, using up to 1 threads
+
+Optimize a model with 27726 rows, 16347 columns and 71254 nonzeros
+Model fingerprint: 0xeaa95371
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [4e-03, 4e+00]
+  Bounds range     [2e-03, 2e+00]
+  RHS range        [7e-03, 2e+00]
+Presolve removed 1612 rows and 806 columns
+Presolve time: 0.10s
+Presolved: 26114 rows, 15603 columns, 68092 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    0.0000000e+00   2.624755e+03   0.000000e+00      0s
+   21211    1.9792046e+02   0.000000e+00   0.000000e+00      1s
+
+Solved in 21211 iterations and 0.57 seconds (0.44 work units)
+Optimal objective  1.979204633e+02
+Time wiggle minimization: 630ms
