@@ -12,7 +12,7 @@ The `json` library is included as a submodule, make sure to include `--recursive
 
 if already cloned.
 
-## Optimization Modules
+## Optimization Module
 
 ### Building
 1. (Skip if Gurobi is installed) Obtain a Gurobi license, [academies can request a free license](https://www.gurobi.com/academia/academic-program-and-licenses/). Then download set up Gurobi following the [guide](https://support.gurobi.com/hc/en-us/articles/14799677517585-Getting-Started-with-Gurobi-Optimizer).
@@ -56,7 +56,7 @@ There are a number of options for the optimization code.
     - This also activate additional flags `-fout2 <pathToOutJson2>`, `-copycomp1 <DisplayName1>` and `-copycomp2 <DisplayName2>` which work similarly for the visualization file `compare.html`. 
 
 
-## Visualization Modules
+## Visualization Module
 Two main files `index.html` and `compare.html` can be found under `visualzation` directory. Open these files directly on any browser of choice and interact with the figures. These files already contained some results that are used in the paper.
 
 ### Rasterizing
