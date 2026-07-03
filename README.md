@@ -57,7 +57,7 @@ There are a number of options for the optimization code.
 
 
 ## Visualization Module
-Two main files `index.html` and `compare.html` can be found under `visualzation` directory. Open these files directly on any browser of choice and interact with the figures. These files already contained some results that are used in the paper.
+You need to activate a local HTTP server (for instance, you can do with Python using `python -m http.server <portNumber>`). Then you can navigate to the visualization folder.
 
 ### Rasterizing
 The images are downloaded as svgs. Due to different rasterizing engines of the browsers, the images can appear fragmented with white thin lines appear at each time step (these lines appear at random and can disappear if we hover the image or zoom it). To produce the final png, one can perform the following actions:

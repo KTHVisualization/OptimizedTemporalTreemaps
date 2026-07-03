@@ -18,7 +18,7 @@ class Radii {
 }
 
 class Axes {
-    constructor(color, width, scale, isShowTime, textSize, timeFrom, distanceFromAxes)
+    constructor(color, width, scale, isShowTime, textSize, timeFrom, distanceFromAxes, timeSteps)
     {
         this.color = color;
         this.width = width;
@@ -29,6 +29,7 @@ class Axes {
         this.textSize = textSize;
         this.timeFrom = timeFrom;
         this.distanceFromAxes = distanceFromAxes;
+        this.timeSteps = timeSteps;
     }
 }
 
@@ -47,10 +48,11 @@ class DropShadowProperties {
 }
 
 class HaloProperties {
-    constructor(color, thicknessPercentage)
+    constructor(color, thicknessPercentage, opacity)
     {
         this.color = color;
         this.thicknessPercentage = thicknessPercentage;
+        this.opacity = opacity;
     }
 }
 
@@ -125,5 +127,49 @@ class InteractionProperties {
     constructor(lineThickness)
     {
         this.lineThickness = lineThickness;
+    }
+}
+
+
+// Determine hue and saturation for the color
+
+class Bucket {
+    constructor(tRange_, valueRange_)
+    {
+        this.tRange = tRange_; // [start, end] range for t
+        this.valueRange = valueRange_; // [start, end] range for values
+    }
+
+    contains(t)
+    {
+        // Check if t is within the bucket's range
+        return this.tRange[0] <= t && t <= this.tRange[1];
+    }
+
+    scale(t)
+    {
+        // Scale t within the bucket to the value range
+        const [tStart, tEnd] = this.tRange;
+        const [valStart, valEnd] = this.valueRange;
+    
+        return Math.round(valStart + ((t - tStart) / (tEnd - tStart)) * (valEnd - valStart));
+    }
+}
+
+class ColorScaler {
+    constructor(buckets_)
+    {
+        this.buckets = buckets_;
+    }
+
+    // Get the values from the bucket
+    getValue(t){
+        for (const bucket of this.buckets)
+        {
+            if (bucket.contains(t))
+            {
+                return bucket.scale(t);
+            }
+        }
     }
 }

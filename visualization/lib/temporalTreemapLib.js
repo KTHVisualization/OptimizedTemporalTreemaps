@@ -1,8 +1,8 @@
 class TemporalTreemapPlusLib {
     constructor(graph, containerID, limitLayer_, layoutType_, scaler_, 
                 colorType_, colorDecideType_, 
-                colorHSL_, colorCat_, colorD3_, colorPop_, colorCode_,
-                opacity_,
+                colorProperties_, colorPop_, colorCode_,
+                opacity_, 
                 paddings_, isDrawAxes_, axes_, radii_, delta_, 
                 shadowType_, halo_, dropShadow_, 
                 otherProperties_,
@@ -16,6 +16,8 @@ class TemporalTreemapPlusLib {
         this.containerID = containerID;
         
         this.limitLayer = limitLayer_;
+        
+        this.colorProperties = colorProperties_;
 
         // Layout type
         this.layoutType = layoutType_;
@@ -28,24 +30,18 @@ class TemporalTreemapPlusLib {
         // Type of the color
         this.colorType = colorType_;
         this.colorDecideType = colorDecideType_;
-        // HSL Color object
-        this.colorHSL = colorHSL_;
 
-        // Choose the categorical color
-        this.colorCat = colorCat_;
-
-        this.colorD3 = colorD3_;
 
         this.colorPop = colorPop_;
-
+     
         this.colorCode = colorCode_;
 
         this.opacity = opacity_;
 
         // Parameters for the axes
         this.isDrawAxes = isDrawAxes_;
-        this.axes = axes_;
 
+        this.axes = axes_;
         // Delta when drawing the graph
         this.delta = delta_;
 
@@ -104,6 +100,7 @@ class TemporalTreemapPlusLib {
         if (this.graph.minScalar === this.graph.maxScalar)
             this.graph.maxScalar = this.graph.minScalar + 1;
 
+        
          // Adjust the scale base on the layout type
         if (this.layoutType === "(x,y) and width Optimized")
         {
@@ -111,7 +108,7 @@ class TemporalTreemapPlusLib {
             // Set all of them to be 1
             this.scaler.x = 1.;
             this.scaler.y = 1.;
-            this.axes.scale = 1.;
+            this.axes.scale = 1.0;
             // No y padding as well
             this.paddings.y = 0.;
         }
@@ -120,7 +117,7 @@ class TemporalTreemapPlusLib {
         {
             // No scale for y and width
             this.scaler.y = 1.;
-            this.axes.scale = 1.;
+            this.axes.scale = 1.0;
             // No y padding
             this.paddings.y = 0.;
         }
@@ -482,6 +479,7 @@ class TemporalTreemapPlusLib {
                         .attr("fill", "none")
                         .attr("stroke", this.halo.color)
                         .attr("stroke-width", this.halo.thicknessPercentage * this.wLowest * this.scaler.y * this.scaler.allScale)
+                        .attr("stroke-opacity", this.halo.opacity)
                         .attr("d", this.curves.bezierCurveFromCoords(
                             p1UpperX, p1UpperY, p2UpperX, p2UpperY,
                             this.delta, this.paddings.x
@@ -489,7 +487,8 @@ class TemporalTreemapPlusLib {
                     let line2 = parent.append("path")
                             .attr("fill", "none")
                             .attr("stroke", this.halo.color)
-                            .attr("stroke-width", this.halo.thicknessPercentage * this.wLowest * this.scaler.y * this.scaler.allScale) 
+                            .attr("stroke-width", this.halo.thicknessPercentage * this.wLowest * this.scaler.y * this.scaler.allScale)
+                            .attr("stroke-opacity", this.halo.opacity) 
                             .attr("d", this.curves.bezierCurveFromCoords(
                                 p1LowerX, p1LowerY, p2LowerX, p2LowerY,
                                 this.delta, this.paddings.x
@@ -605,6 +604,7 @@ class TemporalTreemapPlusLib {
                 .attr("fill", "none")
                 .attr("stroke", this.halo.color)
                 .attr("stroke-width", this.halo.thicknessPercentage * this.wLowest * this.scaler.y * this.scaler.allScale)
+                .attr("stocke-opacity", this.halo.opacity)
                 .attr("d", 
                     this.curves.arcFromCoords(p1X, p1Y, p2X, p2Y, this.radii, direction, this.paddings)
                 );
@@ -798,6 +798,7 @@ class TemporalTreemapPlusLib {
                         .attr("fill", "none")
                         .attr("stroke", this.halo.color)
                         .attr("stroke-width", this.halo.thicknessPercentage * this.wLowest * this.scaler.y * this.scaler.allScale)
+                        .attr("stroke-opacity", this.halo.opacity)
                         .attr("d", this.curves.bezierCurveFromCoords(
                             pointUpper.x, pointUpper.y, p2UpperX, p2UpperY,
                             this.delta, this.paddings.x
@@ -806,6 +807,7 @@ class TemporalTreemapPlusLib {
                             .attr("fill", "none")
                             .attr("stroke", this.halo.color)
                             .attr("stroke-width", this.halo.thicknessPercentage * this.wLowest * this.scaler.y * this.scaler.allScale)
+                            .attr("stroke-opacity", this.halo.opacity)
                             .attr("d", this.curves.bezierCurveFromCoords(
                                 pointLower.x, pointLower.y, p2LowerX, p2LowerY,
                                 this.delta, this.paddings.x
@@ -847,14 +849,16 @@ class TemporalTreemapPlusLib {
             .attr("stroke", this.axes.color);
 
         // Add text
-        if (this.axes.isShowTime)
+        if (this.axes.isShowTime) {
+            const actualTime = this.axes.timeFrom + (timestep * this.axes.timeSteps);
             parent.append("text")
                 .attr("x", xPosition)
                 .attr("y", this.yHighest + this.axes.distanceFromAxes + this.drawOffset)
                 .attr("text-anchor", "middle")
                 .attr("font-size", this.axes.textSize)
                 .attr("fill", "black")
-                .text(timestep + this.axes.timeFrom);
+                .text(actualTime);
+        }
     }
 
 
@@ -914,70 +918,27 @@ class TemporalTreemapPlusLib {
     determineNodeColor(node)
     {
         var color;
-        if (this.colorType == "HSL")
-        {
-            // Determine the hue based on scalar value 
-            let percentage;
-            if (this.colorHSL.decideType === "Depth")
-            {
-                if (node.layer >= this.limitLayer.min && node.layer <= this.limitLayer.max)
-                    percentage = (node.layer - this.limitLayer.min) / (this.limitLayer.max - this.limitLayer.min);
-                else 
-                    // Don't care
-                    percentage = 1.;
-            } else 
-            {
-                percentage = (node.scalar - this.graph.minScalar) / (this.graph.maxScalar - this.graph.minScalar);
-            }
 
-            var hue = this.colorHSL.hue(percentage);
-        
-            var saturation = this.colorHSL.saturation(percentage);
-
-            var lightness = this.colorHSL.lightness(percentage);
+        if (this.colorType === "discrete") {
+            // Use discrete color logic
+            color = this.getDiscreteColor(node);
+            return color;
             
-            // Get the corresponding HSL color
-            color = this.colorHSL.getColorString(hue, saturation, lightness);
-        }
-        
-        if (this.colorType == "Categorical")
-        {
-            // Determine the color of the node based on the node layer and color preset
-            color = this.colorCat.getColorString(node.layer, this.limitLayer.min, this.limitLayer.max);
         }
 
-        if (this.colorType == "D3")
-        {
-            if (this.colorD3.isContinuous)
-            {
-                if (this.colorD3.decideType === "Depth")
-                {
-                    color = this.colorD3.sampleContinuousColor(node.layer, this.limitLayer.min, this.limitLayer.max);
-                }
-                else 
-                {
-                    color = this.colorD3.sampleContinuousColor(node.scalar, this.graph.minScalar, this.graph.maxScalar);
-                    
-                }
-            } else 
-            {
-                if (this.colorD3.decideType === "Depth")
-                {
-                    color = this.colorD3.sampleDiscreteColor(node.layer, this.limitLayer.min, this.limitLayer.max);
-                }
-                else 
-                {
-                    color = this.colorD3.sampleDiscreteColor(node.scalar, this.graph.minScalar, this.graph.maxScalar);
-                }
-            }
+        if (this.colorType === "continuous") {
+            // Use continuous color logic
+            color = this.getContinuousColor(node);
+            return color;
+            
         }
 
-        if (this.colorType == "Population")
+        if (this.colorType == "population")
         {
             color = this.colorPop.determineColorFromName(node.name);
         }
 
-        if (this.colorType === "Code")
+        if (this.colorType === "code")
         {
             color = this.colorCode.determineColorFromName(node.name);
         }
@@ -1007,31 +968,30 @@ class TemporalTreemapPlusLib {
         
         // Clamp lambdaLocal again if it is out of range
         lambdaLocal = Math.max(0, Math.min(1, lambdaLocal));
-        if (this.colorType == "Categorical")
-        {  
-            hsl1 = this.colorHSL.parseHSLString(this.colorHSL.hexToHSL(color1));
-            hsl2 = this.colorHSL.parseHSLString(this.colorHSL.hexToHSL(color2));
-        } 
-        else if (this.colorType == "HSL") {
-            // Get the HSL color
-            hsl1 = this.colorHSL.parseHSLString(color1);
-            hsl2 = this.colorHSL.parseHSLString(color2);
-        } 
-        else 
-        {
-            // Convert to hsl
-            let color1HSL = d3.hsl(color1);
-            let color2HSL = d3.hsl(color2);
-            hsl1 = {h : color1HSL.h, s : color1HSL.s * 100, l: color1HSL.l * 100};
-            hsl2 = {h : color2HSL.h, s : color2HSL.s * 100, l: color2HSL.l * 100};
-        }
+        
+        // Convert to hsl
+        let color1HSL = d3.hsl(color1);
+        let color2HSL = d3.hsl(color2);
+        hsl1 = {h : color1HSL.h, s : color1HSL.s * 100, l: color1HSL.l * 100};
+        hsl2 = {h : color2HSL.h, s : color2HSL.s * 100, l: color2HSL.l * 100};
+     
         // Interpolate between the new values
 
         var h = hsl1.h + lambdaLocal * (hsl2.h - hsl1.h);
         var s = hsl1.s + lambdaLocal * (hsl2.s - hsl1.s);
         var l = hsl1.l + lambdaLocal * (hsl2.l - hsl1.l);
 
-        return this.colorHSL.getColorString(h, s, l);
+        return this.getColorString(h, s, l);
+    }
+
+    // Get the string from h, s, l values
+    getColorString(hue, saturation, lightness)
+    {
+        // Clamp values to ensure they are within range
+        hue = Math.max(0, Math.min(360, hue));
+        saturation = Math.max(0, Math.min(100, saturation));
+        lightness = Math.max(0, Math.min(100, lightness));
+        return "hsl(" + hue + ", " + saturation + "%, " + lightness +"%)";
     }
 
     // Define the gradient color between 2 colors, one of them is interpolated color
@@ -1103,6 +1063,61 @@ class TemporalTreemapPlusLib {
         this.gradientCounter += 1;
 
         return gradID;
+    }
+
+    getContinuousColor(node) {
+
+        let percentage;
+        if (this.colorProperties.decideType === "Depth") {
+            if (node.layer >= this.limitLayer.min && node.layer <= this.limitLayer.max) {
+                percentage = (node.layer - this.limitLayer.min) / (this.limitLayer.max - this.limitLayer.min);
+            } else {
+                percentage = 1.0;
+            }
+        } else {
+            // Scalar-based
+            percentage = (node.scalar - this.graph.minScalar) / (this.graph.maxScalar - this.graph.minScalar);
+        }
+        
+        // Use the interpolation function directly (key difference from discrete!)
+        let baseColor;
+        if (this.colorProperties.inverseOrder) {
+            baseColor = this.colorProperties.interpolateFunction(1 - percentage);
+        } else {
+            baseColor = this.colorProperties.interpolateFunction(percentage);
+        }
+
+        return baseColor;
+
+    }
+
+    getDiscreteColor(node) {
+
+        let percentage;
+        
+        if (this.colorProperties.decideType === "Depth") {
+            if (node.layer >= this.limitLayer.min && node.layer <= this.limitLayer.max) {
+                percentage = (node.layer - this.limitLayer.min) / (this.limitLayer.max - this.limitLayer.min);
+            } else {
+                percentage = 1.0;
+            }
+        } else {
+            // Scalar-based
+            percentage = (node.scalar - this.graph.minScalar) / (this.graph.maxScalar - this.graph.minScalar);
+        }
+        
+        // Get the colors array
+        const finalColors = this.colorProperties.colorArray; // Use the colors you already have
+        
+
+        // Get color index based on percentage
+        const colorIndex = Math.floor(percentage * finalColors.length);
+        const clampedIndex = Math.max(0, Math.min(colorIndex, finalColors.length - 1));
+        
+        // Get the specific color for this node
+        let baseColor = finalColors[clampedIndex];
+        
+        return baseColor;
     }
 
     defineEdgeClipPath(node1Name, node2Name, layer)
