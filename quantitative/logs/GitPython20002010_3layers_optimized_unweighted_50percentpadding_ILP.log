@@ -1,8 +1,0 @@
-Number of nodes: 108867
-Number of hierarchical edges: 108824
-Number of temporal edges: 102916
-Number of time steps: 43
-Number of levels: 4
-Set parameter TokenServer to value "clustermaster.ac.tuwien.ac.at"
-Set parameter MemLimit to value 8
-Set parameter Threads to value 1
